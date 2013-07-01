@@ -16,7 +16,7 @@ angular.module("angular-dynamic", []).directive("dynamic", function ($compile) {
 			var getController = function() { return new Function("return " + scope.structure.controller)(); };
 			
 			// note this is built to use Scoped styles, which are not enabled by default yet on most browsers. Turn on experimental webkit features in chrome://flags to use this.
-			var getStyleBlock = function() { return "<style scoped>" + scope.structure.style + "</style"; };
+			var getStyleBlock = function() { return "<style scoped>" + scope.structure.style + "</style>"; };
 
 			scope.$watch("structure", function() {
 				if (scope.structure) {
