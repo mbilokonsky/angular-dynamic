@@ -12,7 +12,9 @@ angular.module("angular-dynamic", []).directive("dynamic", function ($compile) {
 		template: '<div class="dynamic-component"></div>',
 		replace: true,
 		link: function(scope, element) {
+			// note that this Function constructor is no safer than eval(), so be careful.
 			var getController = function() { return new Function("return " + scope.structure.controller)(); };
+			
 			// note this is built to use Scoped styles, which are not enabled by default yet on most browsers. Turn on experimental webkit features in chrome://flags to use this.
 			var getStyleBlock = function() { return "<style scoped>" + scope.structure.style + "</style"; };
 
